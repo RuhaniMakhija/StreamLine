@@ -1,0 +1,80 @@
+@import "../../base.scss";
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 3rem;
+    background-color: $black-primary;
+    &__menu{
+        display: none;
+    }
+
+    &__logo{
+        width: 44px;
+        height: 30px;
+    }
+
+    form{
+        flex: 0.6;
+        border-radius: 3px;
+        border: 1.2px solid;
+        background-color: $black-secondary;
+        padding: 0.1rem;
+        margin: 0.1rem;
+        display: flex;
+        input{
+            width: 100%;
+            border: none;
+            background: transparent;
+            font-weight: 500;
+            padding: 0.3rem;
+            color: $text-color;
+
+            &:focus{
+                outline: none;
+            }
+        }
+        button{
+            padding: 2px 4px;
+            border: none;
+            background: transparent;
+            color: $text-color;
+        }
+    }
+
+    &__icons{
+        flex: 0.15;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+        img{
+            width: 30px;
+            height: 30px;
+            margin-left: 5px;
+            object-fit: contain;
+        }
+    }
+}
+
+@media (max-width: $breakpoint-small) {
+    .header{
+        padding: 1rem;
+
+        form{
+            flex:1
+        }
+
+        &__menu{
+            display: block;
+            margin-right: 14px;
+        }
+
+        &__logo{
+            display: none;
+        }
+
+        &__icons>*:not(img){
+            display: none;
+        }
+    }
+}
