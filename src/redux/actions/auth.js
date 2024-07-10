@@ -23,7 +23,8 @@ export const login = () => {
         name: res.additionalUserInfo.profile.name,
         photoURL: res.additionalUserInfo.profile.picture,
       };
-      console.log(res);
+      sessionStorage.setItem("ytc-access-token", accessToken);
+      sessionStorage.setItem("ytc-user", JSON.stringify(profile));
       dispatch({
         type: LOGIN_SUCCESS,
         payload: accessToken,
@@ -39,5 +40,17 @@ export const login = () => {
         payload: error.message,
       });
     }
+  };
+};
+
+export const logout = () => {
+  return async (dispatch) => {
+    await auth.signOut();
+    dispatch({
+      type: LOG_OUT,
+    });
+
+    sessionStorage.removeItem("ytc-access-token");
+    sessionStorage.removeItem("ytc-user");
   };
 };
