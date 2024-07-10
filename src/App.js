@@ -32,35 +32,33 @@ const Layout = ({ children }) => {
 const App = () => {
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Layout>
-                <HomeScreen />
-              </Layout>
-            }
-          />
-          <Route path="/auth" element={<LoginScreen />} />
-          <Route
-            path="/search"
-            element={
-              <Layout>
-                <h1>Search Me</h1>
-              </Layout>
-            }
-          />
-          <Route
-            path="*"
-            element={
-              <Layout>
-                <Navigate to="/" />
-              </Layout>
-            }
-          />
-        </Routes>
-      </BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Layout>
+              <HomeScreen />
+            </Layout>
+          }
+        />
+        <Route path="/auth" element={<LoginScreen />} />
+        <Route
+          path="/search"
+          element={
+            <Layout>
+              <h1>Search Me</h1>
+            </Layout>
+          }
+        />
+        <Route
+          path="*"
+          element={
+            <Layout>
+              <Navigate to="/" />
+            </Layout>
+          }
+        />
+      </Routes>
     </>
   );
 };
